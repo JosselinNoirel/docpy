@@ -3,8 +3,8 @@
 ## Environnement Jupyter
 
 * [[Gestion des fichiers et répertoires]]
-* [[Raccourcis Jupyter utiles]]
-* [[Syntaxe Markdown]]
+* [Raccourcis Jupyter utiles](raccourcis_jupyter_utiles)
+* [Syntaxe Markdown](syntaxe_markdown)
 
 ## Programmation en Python
 
