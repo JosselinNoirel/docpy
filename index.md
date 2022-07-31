@@ -4,7 +4,7 @@
 
 * [[Gestion des fichiers et répertoires]]
 * [Raccourcis Jupyter utiles](raccourcis_jupyter_utiles)
-* [Syntaxe Markdown](syntaxe_markdown)
+* [Syntaxe Markdown](syntaxe_markdown.html)
 
 ## Programmation en Python
 
