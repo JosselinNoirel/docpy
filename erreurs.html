@@ -11,7 +11,7 @@
 
 
 
-<title>syntaxe_markdown</title>
+<title>erreurs</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -358,149 +358,86 @@ display: none;
 </div>
 
 
-<div id="syntaxe-markdown" class="section level1">
-<h1>Syntaxe Markdown</h1>
-<div id="formatter-du-texte" class="section level2">
-<h2>Formatter du texte</h2>
-<p>La syntaxe Markdown est un langage de formattage de texte.
-L’essentiel du texte peut être rédigé normalement.</p>
-<pre class="md"><code>La syntaxe Markdown est un langage de formattage de texte.
-L&#39;essentiel du texte peut être rédigé normalement.</code></pre>
-<p>Noter que les fins de ligne sont converties en espaces mais qu’une
-ligne blanche (c’est-à-dire deux sauts de ligne consécutifs) signale une
-fin de paragraphe.</p>
-<p>Il est toujours possible de recourir à une syntaxe HTML pour des cas
-de figure complexes.</p>
-<p>Pour les entêtes de chapitre, section, sous-section, utiliser</p>
-<pre class="md"><code># Chapitre
-## Section
-### Sous-section</code></pre>
-<p>Pour changer de police, on notera</p>
-<pre class="md"><code>*Italique*
-**Gras**</code></pre>
-<p>Pour donner des listes</p>
-<pre class="md"><code>Liste non numérotée
-* Élément
-* Élément
-Liste numérotée
-1. Élément
-2. Élément</code></pre>
-</div>
-<div id="formules-mathématiques" class="section level2">
-<h2>Formules mathématiques</h2>
-<p>Markdown permet d’entrer assez facilement des formules mathématiques
-assez élaborées grâce à la syntaxe LaTeX. (NB : On prononce
-habituellement [latek] en français.)</p>
-<div id="intégration-de-formules" class="section level3">
-<h3>Intégration de formules</h3>
-<p><strong>Formules en ligne</strong> (<em>inline formulae</em>) Les
-formules LaTeX peuvent être intégrées dans un paragraphe
-<code>$...$</code> comme c’est le cas dans ce paragraphe-ci avec le
-théorème de Pythagore <span class="math inline">\(a^2 + b^2 =
-c^2\)</span>.</p>
-<pre class="md"><code>Les formules LaTeX peuvent être intégrées dans un paragraphe
-`$...$` comme c&#39;est le cas dans ce paragraphe-ci avec
-le théorème de Pythagore $a^2 + b^2 = c^2$</code></pre>
-<p><strong>Formules centrées</strong> (<em>display formulae</em>) Les
-formules LaTeX peuvent également être présentées sur une ligne à part
-lorsqu’elles sont importantes <span class="math display">\[
-    e^{i\pi} + 1 = 0
-\]</span> ou lorsqu’elles prendraient trop de place à l’intérieur d’un
-paragraphe.</p>
-<pre class="md"><code>Les formules LaTeX peuvent également être présentées
-sur une ligne à part lorsqu&#39;elles sont importantes
-$$
-    e^{i\pi} + 1 = 0
-$$
-ou lorsqu&#39;elles prendraient trop de place à l&#39;intérieur
-d&#39;un paragraphe.</code></pre>
-</div>
-<div id="mode-mathématique" class="section level3">
-<h3>Mode mathématique</h3>
-<p>À l’intérieur des formules, on passe en <em>mode mathématique</em>.
-Cela a pour conséquence que la plupart des espaces sont ignorées. Ainsi
-<code>$a+b$</code> et <code>$a + b$</code> produisent le même résultat;
-idem pour <code>$(a, b)$</code> et <code>$(a,b)$</code>. Markdown fait
-appel à un outil nommé MathJax pour produire une formule de bonne
-facture typographique : les variables sont en italique, les fonctions
-sont en police droite, un espacement convenable entourent les opérateurs
-<span class="math inline">\(+\)</span> ou <span class="math inline">\(\cdot\)</span>, les relations mathématiques <span class="math inline">\(=\)</span> ou <span class="math inline">\(\leq\)</span>.</p>
-<p>En mode mathématique, le tiret <code>-</code> est compris comme le
-signe moins <span class="math inline">\(-\)</span> (deux caractères
-différents).</p>
-<p>Les virgules également sont soumises à un espacement particulier pour
-l’écriture de vecteurs <code>$(a,b,c)$</code> produisant ainsi <span class="math inline">\((a, b, c)\)</span>. Cet espacement devient
-problématique dans les langues qui, comme le français, ont pour
-séparateur décimal la virgule, car <code>3,1415</code> donne <span class="math inline">\(3,1415\)</span> en mode mathématique, car cela est
-compris comme la juxtaposition de deux entiers, <span class="math inline">\(3\)</span> et <span class="math inline">\(1415\)</span>. Deux solutions :</p>
+<div id="erreurs-classiques" class="section level1">
+<h1>Erreurs classiques</h1>
+<div id="variable-non-définie" class="section level2">
+<h2>Variable non définie</h2>
+<pre><span style="color: red">NameError</span>: name &#39;a&#39; is not defined</pre>
+<p><strong>Explication.</strong> La variable référencée dans le code
+n’existe pas : Python a beau consulter sa mémoire, aucune variable de ce
+nom n’existe.</p>
 <ol style="list-style-type: decimal">
-<li>utiliser le séparateur décimal anglo-saxon <code>3.1415</code> pour
-<span class="math inline">\(3.1415\)</span> ou</li>
-<li>entourer la virgule d’accolades <code>3{,}1415</code> pour <span class="math inline">\(3{,}1415\)</span>.</li>
+<li><p>Si vous venez d’ouvrir un carnet Jupyter, il est peut-être
+nécessaire d’exécuter certaines cellules du carnet avant d’en arriver au
+calcul qui provoque l’erreur. (Il n’est pas exclu que lors de la
+création du carnet, la cellule définissant la variable <span class="math inline">\(a\)</span> ait été insérée par erreur plus bas que
+celle du calcul provoquant l’erreur. Il n’est pas non plus exclu que la
+cellule ayant défini la variable ait été retirée par erreur.)</p></li>
+<li><p>Il est possible que vous exécutiez une cellule de code donnant
+l’impression de définir la variable <span class="math inline">\(a\)</span> mais qu’elle soit en fait inopérante.
+Par exemple, si l’affectation est soumise à une condition que vous
+pensez <em>vraie</em> à tort :</p></li>
 </ol>
-<p>La première solution, l’utilisation du séparateur <code>.</code>, a
-la préférence de l’équipe pédagogique car elle est cohérente avec la
-notation qui sera celle des cellules de code. (On évitera d’utiliser la
-virgule pour séparer les milliers.)</p>
+<pre class="python"><code>if b &lt; 0:
+    a = 3.1415</code></pre>
 </div>
-<div id="indices-et-exposants" class="section level3">
-<h3>Indices et exposants</h3>
-<p>Pour obtenir un indice <span class="math inline">\(x_{10}\)</span> on
-écrit <code>x_{10}</code>.</p>
-<p>Pour obtenir un exposant <span class="math inline">\(10^{-4}\)</span>
-on écrit <code>10^{-4}</code>.</p>
+<div id="indentation" class="section level2">
+<h2>Indentation</h2>
+<p>L’<strong>indentation</strong> en block est importante en Python :
+elle marque d’un point de vue syntaxique les relations de dépendance des
+diverses instructions. Dans l’exemple suivant</p>
+<pre class="python"><code>if b &lt; 0
+    if a &lt; 0:
+        c = a * b</code></pre>
+<p>l’instruction <code>c = a * b</code> est subordonné au deuxième
+<code>if</code>, qui lui-même dépend du premier.</p>
+<pre><span style="color: red">IndentationError</span>: expected an indented block</pre>
+<pre><span style="color: red">IndentationError</span>: unexpected indent</pre>
 </div>
-<div id="opérateurs-utiles" class="section level3">
-<h3>Opérateurs utiles</h3>
-<p>Les opérateurs de l’addition, de la soustraction et de la division
-sont simplement <code>+</code>, <code>-</code> et <code>/</code>. Pour
-la multiplication, vous avez le choix entre (1) ne pas introduire
-d’opérateur <span class="math inline">\(a b\)</span> avec
-<code>a b</code>, (2) l’opérateur <span class="math inline">\(a\times
-b\)</span> avec <code>a \times b</code> et (3) l’opérateur <span class="math inline">\(a\cdot b\)</span> avec <code>a \cdot b</code>.</p>
-<p>Pour la division on écrira généralement <span class="math inline">\(a/b\)</span> simplement avec l’opérateur slash
-<span class="math inline">\(/\)</span>. Les fractions, peuvent être
-obtenues avec <code>\frac{num}{denom}</code> <span class="math display">\[
-    \frac{f(x + h) - f(x)}{h}
-\]</span></p>
-<p>Les opérateurs de comparaisons <code>a \leq b</code> (<span class="math inline">\(a \leq b\)</span>) <code>a &lt; b</code> (<span class="math inline">\(a &lt; b\)</span>) <code>a = b</code> (<span class="math inline">\(a = b\)</span>) <code>a &gt; b</code> (<span class="math inline">\(a &gt; b\)</span>) <code>a \geq b</code> (<span class="math inline">\(a \geq b\)</span>).</p>
+<div id="utilisation-des-listes" class="section level2">
+<h2>Utilisation des listes</h2>
+<div id="utilisation-des-indices-pour-des-objets-qui-ne-sont-pas-des-listes" class="section level3">
+<h3>Utilisation des indices pour des objets qui ne sont pas des
+listes</h3>
+<p>Il est possible d’accéder à un élément d’une liste via
+<code>L[i]</code>. Mais si <code>L</code> n’est pas une liste ou un
+dictionnaire par exemple, les crochets (<em>subscript</em> le fait de
+passer un indice) n’ont pas de sens et leur utilisation fautive produit
+une erreur telle que</p>
+<pre><span style="color: red">TypeError</span>: &#39;int&#39; object is not subscriptable</pre>
+<p>Le message d’erreur peut aussi parler d’autres objets comme les
+nombres à virgule : <code>&#39;float&#39; object is not subscriptable</code>,
+etc.</p>
 </div>
-<div id="lettres-grecques-et-autres-symboles" class="section level3">
-<h3>Lettres grecques et autres symboles</h3>
-<p><code>\alpha</code>, <code>\beta</code>, <code>\gamma</code>,
-<code>\Gamma</code>, <code>\rho</code>, <code>\sigma</code>,
-<code>\delta</code>, <code>\Delta</code>, <code>\epsilon</code> pour
-obtenir <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>, <span class="math inline">\(\gamma\)</span>, <span class="math inline">\(\Gamma\)</span>, <span class="math inline">\(\rho\)</span>, <span class="math inline">\(\sigma\)</span>, <span class="math inline">\(\delta\)</span>, <span class="math inline">\(\Delta\)</span>, <span class="math inline">\(\epsilon\)</span>, etc.</p>
-<p>Autre symbole utile : <span class="math inline">\(\infty\)</span> via
-<code>\infty</code>.</p>
-<p>(Cf. <a href="https://www.overleaf.com/learn/latex/List_of_Greek_letters_and_math_symbols">Mathematical
-expressions</a> par Overlead.)</p>
+<div id="utilisation-dindices-trop-grands" class="section level3">
+<h3>Utilisation d’indices trop grands</h3>
+<p>Si une liste contient 100 éléments, on ne peut ni consulter ni
+affecter une valeur à l’élément 312. L’indice est en dehors des valeurs
+possibles.</p>
+<pre><span style="color: red">IndexError</span>: list index out of range</pre>
+<pre><span style="color: red">IndexError</span>: list assignment index out of range</pre>
+<p>Pour un tableau NumPy, le même principe s’applique mais les messages
+d’erreur sont un peu différents</p>
+<pre><span style="color: red">IndexError</span>: index 3 is out of bounds for axis 0 with size 3</pre>
 </div>
-<div id="fonctions-mathématiques-usuelles" class="section level3">
-<h3>Fonctions mathématiques usuelles</h3>
-<p>La fonction exponentielle peut utiliser la notation
-<code>e^{x}</code>, <code>\exp(x)</code> ou encore (lorsqu’il n’y a pas
-de méprise possible) <code>\exp x</code>. Le logarithme
-<code>\log(x)</code> ou si une autre base est utilisée
-<code>\log_{b}(x)</code>. Les fonctions sinus, cosinus et tangent sont
-disponibles via <code>\sin(x)</code>, <code>\cos(x)</code> et
-<code>\tan(x)</code>.</p>
 </div>
-<div id="commandes-diverses" class="section level3">
-<h3>Commandes diverses</h3>
-<p>Une somme est obtenue ainsi <code>\sum_{k = 0}^{+\infty} u_{k}</code>
-pour obtenir <span class="math display">\[
-    \sum_{k = 0}^{+\infty} u_{k}
-\]</span></p>
-<p>Un produit somme est obtenu ainsi
-<code>\prod{k = 0}^{+\infty} u_{k}</code> pour obtenir <span class="math display">\[
-    \prod_{k = 0}^{+\infty} u_{k}
-\]</span></p>
-<p>Une intégrale est obtenue ainsi
-<code>\int_{k = 0}^{+\infty} f(x) dx</code> <span class="math display">\[
-    \int_{k = 0}^{+\infty} f(x) dx
-\]</span></p>
+<div id="erreurs-de-calcul" class="section level2">
+<h2>Erreurs de calcul</h2>
+<div id="overflow" class="section level3">
+<h3>Overflow</h3>
+<p>Les entiers de Python peuvent en principe être aussi grands que l’on
+veut (mais la mémoire et le temps de calcul vont tout de même imposer
+des limites à ce qu’il est possible de faire). Ce n’est pas le cas des
+nombres à virgule flottante qui ne peuvent dépasser des nombres de
+l’ordre de <span class="math inline">\(10^{300}\)</span>. Certain
+calculs dépassant cette valeur génèrent donc une erreur qui peut
+ressembler</p>
+<pre><span style="color: red">OverflowError</span>: (34, &#39;Numerical result out of range&#39;)</pre>
+<pre><span style="color: red">RuntimeWarning</span>: overflow encountered in exp</pre>
 </div>
+</div>
+<div id="erreurs-de-parenthèses" class="section level2">
+<h2>Erreurs de parenthèses</h2>
 </div>
 </div>
 
