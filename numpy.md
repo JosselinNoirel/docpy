@@ -71,6 +71,8 @@ np.array([-3.71, +1.43, -2.49, +7.21, 9.05])
 
 (Nous ne pouvons pas prétendre à l'exhaustivité ici.)
 
+<!-- TODO boolean subsetting, exemple donné dans graphiques.md x[x > 1] -->
+
 ## Fonctions mathématiques
 
 Les opérateurs traditionnels (`+`, `-`, `*`, `/` et `**`) fonctionnent parfaitement avec les tableaux NumPy : ces opérations sont simplement généralisées à partir de leur équivalent classique en procédant « terme à terme » ([array programming](https://en.wikipedia.org/wiki/Array_programming)). NumPy fournit en outre les fonctions mathématiques usuelles et celles-ci fonctionnent sur des tableaux NumPy, les listes Python, des entiers ou des nombres flottants.
