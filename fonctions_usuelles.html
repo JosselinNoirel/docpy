@@ -11,7 +11,7 @@
 
 
 
-<title>fonction</title>
+<title>fonctions_usuelles</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -358,63 +358,104 @@ display: none;
 </div>
 
 
-<div id="fonctions" class="section level1">
-<h1>Fonctions</h1>
-<p>Pour le nommage d’une fonction, les mêmes règles que pour une <a href="variable">variable</a> s’applique.</p>
-<p>La syntaxe générale est la suivante :</p>
-<pre><code>def FUNC(ARG1, ARG2,...):
-    BODY
-    BODY
-    BODY
-    return VALUE</code></pre>
-<p>Avec des indentations pour indiquer l’étendue du bloc des
-instructions de la fonction.</p>
-<p>L’appel d’une fonction donne une valeur qui est substituée dans un
-calcul. On dit que c’est la valeur retournée par la fonction et cela est
-signalé dans le corps de la fonction par le mot clef return.</p>
-<div id="définir-une-fonction-mathématique" class="section level2">
-<h2>Définir une fonction mathématique</h2>
-<p>Pour une fonction mathématique, on peut définir une fonction Python
-en deux lignes :</p>
-<pre class="python"><code>def f(x):
-    return np.exp(np.abs(np.sin(x)))</code></pre>
-<p>où l’on modifie l’expression retournée selon la fonction mathématique
-à définir. Vous aurez sans doute besoin des fonctions de la bibliothèque
-NumPy.</p>
-<p><strong>NB :</strong> l’indentation en début de ligne, en amont du
-return est capitale car elle renseigne Python sur le bloc d’instructions
-qui constitue le corps de la fonction.</p>
-<div id="quels-sont-les-avantages" class="section level3">
-<h3>Quels sont les avantages ?</h3>
+<div id="fonctions-usuelles" class="section level1">
+<h1>Fonctions usuelles</h1>
+<div id="fonctions-python" class="section level2">
+<h2>Fonctions Python</h2>
+<p>Quelques fonctions fondamentales :</p>
 <ul>
-<li>Le code est modulaire : on peut rapidement étudier une fonction
-différente en ne modifiant qu’un seul point du code.</li>
-<li>Le code est plus lisible et plus proche des notations
-mathématiques.</li>
-<li>Le code est plus concis et cela permet de prévenir les incohérences
-et les bugs.</li>
+<li><code>len(x)</code> retourne le nombre d’éléments d’une liste Python
+ou d’un tableau 1D NumPy</li>
+<li><code>type(x)</code> retourne le type d’objet : est-ce un entier, un
+flottant, une liste, une chaîne de caractères, un booléen, etc. (cf. la
+page <a href="objet.html">objets</a>)</li>
+</ul>
+<p>Python dispose de relativement peu de fonctions mathématiques (outre
+les opérateurs classiques +, -, *, / et **). Malgré tout, il sera utile
+dans le cours de connaître :</p>
+<ul>
+<li><code>abs(x)</code> retourne la valeur absolue de <span class="math inline">\(x\)</span> par exemple dans le calcul d’erreur (il
+existe une version NumPy <code>np.abs()</code> également)</li>
+</ul>
+<p>D’autres fonctions mathématiques existent mais ne seront pas d’une
+grande utilité :</p>
+<ul>
+<li><code>divmod(x)</code> retourne le reste et la division entière en
+un tuple</li>
+<li><code>min(x, y, z,...)</code> le minimum d’une liste, d’un tableau
+(aussi <code>np.min()</code>)</li>
+<li><code>max(x, y, z,...)</code> le maximum (aussi
+<code>np.max()</code>)</li>
+<li><code>round(x)</code> (aussi <code>np.round()</code>)</li>
+</ul>
+<p><strong>NB :</strong> Pour les opérateurs, voir
+<!-- TODO syntaxe Python. --></p>
+</div>
+<div id="importer-une-bibliothèque" class="section level2">
+<h2>Importer une bibliothèque</h2>
+<p>Pour importer une bibliothèque et enrichir Python on utilise le mot
+clef <code>import</code> :</p>
+<pre class="python"><code>import numpy</code></pre>
+<p>Les fonctions de NumPy sont disponibles via le préfixe
+<code>numpy.</code> (on parle d’<strong>espace de nommage</strong>), par
+exemple <code>numpy.sqrt()</code> pour la racine carrée. Cette écriture
+se révèle lourde à l’usage et on peut aussi importer une bibliothèque en
+introduisant un raccourci pour l’<strong>espace de nommage</strong>. Les
+fonctions de NumPy sont disponibles via le préfixe <code>np.</code>, par
+exemple <code>np.sqrt()</code> pour la racine carrée grâce</p>
+<pre class="python"><code>import numpy as np</code></pre>
+<p>C’est la solution adoptée conventionnellement dans ce cours et dans
+la communauté du calcul scientifique.</p>
+<hr />
+<p>On peut importer certains objets spécifique de la bibliothèque :</p>
+<pre class="python"><code>from numpy import pi, sqrt, exp, log</code></pre>
+<p>Les fonctions sont directement accessibles sans préfixe, ainsi on
+appellera <code>exp()</code>. Ces objets peuvent être éventuellement
+renommés au passage :</p>
+<pre class="python"><code>from numpy import pi as π</code></pre>
+<p>Enfin, on peut choisir en principe d’importer tous les objets mais
+l’usage résiste à cette solution :</p>
+<pre class="python"><code>from sympy import *</code></pre>
+<hr />
+<p><strong>NB :</strong> La bibliothèque Math, standard, fournit de
+nombreux équivalents aux fonctions mathématiques de NumPy mais leur
+utilisation ne s’applique pas à des listes ou des tableaux NumPy et elle
+n’est que rarement chargée.</p>
+</div>
+<div id="liste-de-bibliothèques" class="section level2">
+<h2>Liste de bibliothèques</h2>
+<p>Bibliothèques usuelles dans ce cours :</p>
+<ul>
+<li>NumPy <code>numpy as np</code></li>
+<li>Matplotlib <code>matplotlib.pyplot as plt</code></li>
+</ul>
+<p>Bibliothèques hors programme :</p>
+<ul>
+<li>Math pour des fonctions mathématiques</li>
+<li>Autograd pour la différentiation automatique</li>
+<li>SymPy pour du calcul symbolique</li>
 </ul>
 </div>
+<div id="fonctions-numpy" class="section level2">
+<h2>Fonctions NumPy</h2>
+<p>NumPy définit des fonctions pour la création, la manipulation de
+<em>tableaux</em> ; en outre, NumPy fournit les fonctions mathématiques
+les plus souvent utilisées dans ce cours comme l’exponentielle, le
+logarithme, les fonctions trigonométriques, etc. Les opérateurs pour
+l’addition, la multiplication, etc., décrits dans la partie sur la <a href="syntaxe_Python.html">syntaxe Python</a> fonctionnent aussi, terme
+à terme, avec les tableaux NumPy.</p>
+<p>Les fonctions NumPy simplifient également la vie pour la <a href="graphiques.html">représentation graphique des fonctions</a>.</p>
+<p>Plus d’informations sur la page dédiée : <a href="numpy.html">Bibliothèque NumPy</a>.</p>
 </div>
-<div id="définir-une-fonction-programmatique" class="section level2">
-<h2>Définir une fonction programmatique</h2>
-<p>On peut aussi définir une fonction de façon à automatiser une tâche.
-Par exemple, s’il vous est souvent utile de calculer la somme des
-éléments positifs d’une liste, on peut définir une telle fonction.</p>
-<pre class="python"><code>def sum_pos(x):
-    s = 0.
-    for xval in x:
-        if xval &gt; 0.:
-            s = s + xval
-    return s
-
-sum_pos([9, -5, -7, 9, -5, -6, -3, 5, -5, 6])</code></pre>
-<p>La variable <span class="math inline">\(s\)</span> définie dans le
-corps de la fonction (délimité par l’indentation) est une variable
-locale : elle sera invisible en dehors de la fonction.</p>
-<p>Le mot clef <code>return</code> signale quelle valeur doit être
-retournée par la fonction, c’est-à-dire la valeur qui est substituée à
-un appel ultérieur de <code>sum_pos(...)</code>.</p>
+<div id="fonctions-matplotlib" class="section level2">
+<h2>Fonctions Matplotlib</h2>
+<p>Matplotlib fournit les fonctions nécessaires à la création de
+graphiques (fonction [[plot (fonction Matplotlib)|plot]] notamment) et
+l’annotation de graphiques (text, xlabel, etc.). En conjonction avec
+NumPy, Matplotlib simplifie la vie pour la [[Graphiques et
+visualisation|représentation graphique des fonctions]].</p>
+<p>Plus d’informations sur la page dédiée : [[Bibliothèque
+Matplotlib]].</p>
 </div>
 </div>
 

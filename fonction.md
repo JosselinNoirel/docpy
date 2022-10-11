@@ -31,7 +31,7 @@ où l'on modifie l'expression retournée selon la fonction mathématique à déf
 
 ### Quels sont les avantages ?
 
-* Le code est modulaire : on peut rapidement étudier une fonction différente en ne modifiant qu'un seul point du code.
+* Le code est modulaire : on peut rapidement étudier une fonction différente en ne modifiant qu'un seul point du code.
 * Le code est plus lisible et plus proche des notations mathématiques.
 * Le code est plus concis et cela permet de prévenir les incohérences et les bugs.
 

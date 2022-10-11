@@ -368,6 +368,7 @@ lui présente une instruction compréhensible et complète. Si
 l’instruction n’est pas complète, Python peut lire la seconde ligne pour
 voir si elle complète la première (par exemple si une parenthèse n’a pas
 été refermée).</p>
+<!-- TODO mot clef -->
 <p>Un <code>#</code> (<em>croisillon</em> ou <em>hash sign</em>) initie
 sur la ligne un <strong>commentaire</strong>, c’est-à-dire une portion
 de code qui n’est pas lue par l’ordinateur mais peut accueillir une
@@ -380,14 +381,36 @@ annotation destinée au lecteur.</p>
 Parmi des instructions,</p>
 <ul>
 <li>on peut trouver des <strong>affectations</strong> de <a href="variable.html">variable</a>,</li>
+<li>on peut trouver des opérations faisant appel à des
+<strong>opérateurs</strong></li>
 <li>on peut trouver des appels de fonctions,
 <ul>
 <li>soit des fonctions prédéfinies (par exemple, <a href="function_len.html"><code>len()</code></a>),</li>
 <li>soit des fonctions définies par une bibliothèque (par exemple, <a href="function_linspace.html"><code>linspace()</code></a>),</li>
-<li>soit encore des fonctions définies par l’utilisateur (cf. <a href="fonction.html">fonctions</a>),</li>
+<li>soit encore des fonctions définies par l’utilisateur (cf. <a href="fonction.html">fonctions</a>),</li>
 </ul></li>
 <li>on peut trouver des structures de contrôle (<a href="if_then_else.html">if-then-else</a>, boucles <a href="for.html">for</a> et <a href="while.html">while</a>).</li>
 </ul>
+</div>
+<div id="opérateurs" class="section level2">
+<h2>Opérateurs</h2>
+<p>Les opérateurs les plus courants sont :</p>
+<ul>
+<li><code>x + y</code> et <code>x - y</code> l’addition <span class="math inline">\(x + y\)</span> et la soustraction <span class="math inline">\(x - y\)</span></li>
+<li><code>x * y</code> et <code>x/y</code> l’addition <span class="math inline">\(x + y\)</span> et la division <span class="math inline">\(x/y\)</span></li>
+<li><code>x**a</code> l’exponentiation <span class="math inline">\(x^a\)</span></li>
+<li><code>-x</code> l’opposé de <span class="math inline">\(x\)</span></li>
+<li><code>n % m</code> le reste de la division de <span class="math inline">\(n\)</span> par <span class="math inline">\(m\)</span> et</li>
+<li><code>n // m</code> la division entière de <span class="math inline">\(n\)</span> par <span class="math inline">\(m\)</span></li>
+</ul>
+<p><strong>NB 1 :</strong> Il n’y a pas d’opérateur dédié pour la racine
+<span class="math inline">\(n\)</span>-ième mais on se souviendra que
+<span class="math inline">\(\sqrt[n]{x}\)</span> correspond à
+l’exponentiation <span class="math inline">\(x^{1/n}\)</span>. Par
+exemple <code>x**.1</code> pour une racine dixìeme.</p>
+<p><strong>NB 2 :</strong> Le fonctionnement de ces opérateurs est
+généralisé pour pouvoir fonctionner terme à terme avec des tableaux
+NumPy.</p>
 </div>
 <div id="appel-dune-fonction" class="section level2">
 <h2>Appel d’une fonction</h2>
@@ -401,10 +424,10 @@ se faisant donc <code>func_name()</code>.)</p>
 virgule :</p>
 <pre class="python"><code>func_name(arg1, arg2, arg3)</code></pre>
 <p>Chaque argument porte un nom dont on peut prendre connaissance en
-lisant la documentation de la fonction. Par exemple, la fonction
+lisant la documentation de la fonction (voir commencer consulter la <a href="aide.html">documentation</a>). Par exemple, la fonction
 <code>open()</code>, qui permet d’ouvrir des fichiers, accepte ces trois
 arguments nommé <em>file</em>, <em>mode</em> et <em>buffering</em>, qui
-sont autant de paramètres qui contrôlent comment la fonction remplira sa
+sont autant de paramètres qui contrôlent comment la fonction remplit sa
 tâche :</p>
 <pre class="python"><code>open(file, mode=&#39;r&#39;, buffering=-1)</code></pre>
 <p>Certains arguments sont optionnels : ils peuvent être omis, auquel
@@ -421,7 +444,7 @@ les deux appels suivants seront strictement équivalents :</p>
 <pre class="python"><code>open(&#39;corpus.txt&#39;, mode=&#39;r&#39;, buffering=-1)
 open(&#39;corpus.txt&#39;, buffering=-1, mode=&#39;r&#39;)</code></pre>
 <p>Voir aussi : les articles concernant les <a href="fonction.html">fonctions</a> définies par l’utilisateur et les <a href="fonctions_usuelles.html">fonctions usuelles</a> de Python et des
-bibliothèques NumPy et Matplotlib).</p>
+bibliothèques NumPy et Matplotlib.</p>
 </div>
 </div>
 

@@ -26,6 +26,7 @@ Un programme consiste en une suite d'**instructions**. Parmi des
 instructions,
 
 -   on peut trouver des **affectations** de [variable](variable.html),
+-   on peut trouver des opérations faisant appel à des **opérateurs**
 -   on peut trouver des appels de fonctions,
     -   soit des fonctions prédéfinies (par exemple,
         [`len()`](function_len.html)),
@@ -36,6 +37,22 @@ instructions,
 -   on peut trouver des structures de contrôle
     ([if-then-else](if_then_else.html), boucles [for](for.html) et
     [while](while.html)).
+
+## Opérateurs
+
+Les opérateurs les plus courants sont :
+
+* `x + y` et `x - y` l'addition $x + y$ et la soustraction $x - y$
+* `x * y` et `x/y`   l'addition $x + y$ et la division $x/y$
+* `x**a`             l'exponentiation $x^a$
+* `-x`               l'opposé de $x$
+* `n % m`            le reste de la division de $n$ par $m$ et
+* `n // m`           la division entière     de $n$ par $m$
+
+**NB 1 :** Il n'y a pas d'opérateur dédié pour la racine $n$-ième mais on se souviendra que
+$\sqrt[n]{x}$ correspond à l'exponentiation $x^{1/n}$. Par exemple `x**.1` pour une racine dixìeme.
+
+**NB 2 :** Le fonctionnement de ces opérateurs est généralisé pour pouvoir fonctionner terme à terme avec des tableaux NumPy.
 
 ## Appel d'une fonction
 
@@ -89,4 +106,4 @@ open('corpus.txt', buffering=-1, mode='r')
 Voir aussi : les articles concernant les [fonctions](fonction.html)
 définies par l'utilisateur et les [fonctions
 usuelles](fonctions_usuelles.html) de Python et des bibliothèques NumPy
-et Matplotlib).
+et Matplotlib.
